@@ -26,11 +26,12 @@ jobs:
     - name: Install blocklist aggregator
       run: |
         sudo python3 -m pip install blocklist_aggregator
+        sudo cp blocklist.py /tmp/
     - name: Generate, commit and push
       run: |
         git checkout --orphan data
         git rm -rf .
-        sudo python3 blocklist.py
+        sudo python3 /tmp/blocklist.py
         git add blocklist.txt
         git commit -m "blocklist generated"
         git push origin data
