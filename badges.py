@@ -3,7 +3,7 @@ from datetime import date
 
 # create badge pour the date
 b1 = badge(left_text='Last updated', 
-          right_text=date.today(),
+          right_text="%s" % date.today(),
           right_color='blue')
           
 with open("badge_date.svg", "w") as f:
