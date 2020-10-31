@@ -1,0 +1,36 @@
+name: Every 5 minutes
+on:
+  schedule:
+    # Every 5 minutes
+    - cron: "*/5 * * * *"
+    # At the end of every day
+    #- cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        # checkout all branches
+        fetch-depth: 0
+    - name: Remove remote data branch
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git push origin :data
+    - name: Setup Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.7"
+    - name: Install blocklist aggregator
+      run: |
+        sudo python3 -m pip install blocklist_aggregator
+    - name: Generate, commit and push
+      run: |
+        git checkout --orphan data
+        git rm -rf .
+        sudo python3 blocklist.py
+        git add blocklist.txt
+        git commit -m "blocklist generated"
+        git push origin data
