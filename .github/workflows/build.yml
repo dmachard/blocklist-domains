@@ -1,4 +1,4 @@
-name: Every 5 minutes
+name: Build
 on:
   schedule:
     # Every 5 minutes
