@@ -28,7 +28,7 @@ jobs:
         sudo python3 -m pip install blocklist_aggregator
         sudo cp blocklist.py /tmp/
     - id: today_date
-      run: echo "##[set-output name=data;]$(echo date)"
+      run: echo "##[set-output name=data;]$(date)"
     - name: today badge
       uses: RubbaBoy/BYOB@v1.1.0
       with:
