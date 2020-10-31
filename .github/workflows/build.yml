@@ -47,7 +47,7 @@ jobs:
         git commit -m "blocklist generated"
         git push origin data
     - id: total_entries
-      run: echo "##[set-output name=data;]$(wc -l test.py | awk '{ print $1 }')"
+      run: echo "##[set-output name=data;]$(wc -l blocklist.txt | awk '{ print $1 }')"
     - name: total badge
       uses: RubbaBoy/BYOB@v1.1.0
       with:
