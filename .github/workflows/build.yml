@@ -28,7 +28,7 @@ jobs:
         sudo python3 -m pip install blocklist_aggregator
         sudo cp blocklist.py /tmp/
     - id: today_date
-      run: echo "##[set-output name=data;]$($(echo date))"
+      run: echo "##[set-output name=data;]$(echo date)"
     - name: today badge
       uses: RubbaBoy/BYOB@v1.1.0
       with:
@@ -46,3 +46,13 @@ jobs:
         git add hosts.txt
         git commit -m "blocklist generated"
         git push origin data
+    - id: total_entries
+      run: echo "##[set-output name=data;]$(wc -l test.py | awk '{ print $1 }')"
+    - name: total badge
+      uses: RubbaBoy/BYOB@v1.1.0
+      with:
+        NAME: total
+        LABEL: 'total'
+        STATUS: ${{ steps.total_entries.outputs.data }}
+        COLOR: 027CB9
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

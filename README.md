@@ -2,8 +2,8 @@
 
 Unified blocklists of ads/tracking/malware domains based on the [blocklist-aggregator](https://github.com/dmachard/blocklist-aggregator) project.
 
-* Last updated: (https://byob.yarr.is/dmachard/blocks-domain/today)
-* Number of aggregated entries: xxxxx
+* Last updated: ![today](https://byob.yarr.is/dmachard/blocks-domain/today)
+* Aggregated entries: ![total](https://byob.yarr.is/dmachard/blocks-domain/total)
 
 Several types of hosts files are provided (daily updated):
 - [blocklist.txt](https://github.com/dmachard/blocklist-domains/blob/data/blocklist.txt)
