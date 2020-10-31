@@ -27,6 +27,16 @@ jobs:
       run: |
         sudo python3 -m pip install blocklist_aggregator
         sudo cp blocklist.py /tmp/
+    - id: today_date
+      run: echo "##[set-output name=data;]$($(echo date))"
+    - name: today badge
+      uses: RubbaBoy/BYOB@v1.1.0
+      with:
+        NAME: today
+        LABEL: 'today'
+        STATUS: ${{ steps.today_date.outputs.data }}
+        COLOR: 027CB9
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Generate, commit and push
       run: |
         git checkout --orphan data
