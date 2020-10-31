@@ -33,5 +33,6 @@ jobs:
         git rm -rf .
         sudo python3 /tmp/blocklist.py
         git add blocklist.txt
+        git add hosts.txt
         git commit -m "blocklist generated"
         git push origin data
