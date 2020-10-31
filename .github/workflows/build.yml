@@ -33,7 +33,7 @@ jobs:
       uses: RubbaBoy/BYOB@v1.1.0
       with:
         NAME: today
-        LABEL: 'today'
+        LABEL: 'Last updated'
         STATUS: ${{ steps.today_date.outputs.data }}
         COLOR: 027CB9
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -52,7 +52,7 @@ jobs:
       uses: RubbaBoy/BYOB@v1.1.0
       with:
         NAME: total
-        LABEL: 'total'
+        LABEL: 'Aggregated entries'
         STATUS: ${{ steps.total_entries.outputs.data }}
         COLOR: 027CB9
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
