@@ -10,7 +10,7 @@ with open("badge_date.svg", "w") as f:
     f.write(b1)
     
 # create badge pour the number of hosts
-with open("blocklists.txt", "r") as f:
+with open("blocklist.txt", "r") as f:
     data = f.read()
 domains = data.splitlines()
 
