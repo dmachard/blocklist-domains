@@ -2,9 +2,9 @@ name: Build
 on:
   schedule:
     # Every 5 minutes
-    #- cron: "*/5 * * * *"
+    - cron: "*/5 * * * *"
     # At the end of every day
-    - cron: "0 0 * * *"
+    #- cron: "0 0 * * *"
 
 jobs:
   build:
@@ -27,32 +27,20 @@ jobs:
       run: |
         sudo python3 -m pip install blocklist_aggregator
         sudo cp blocklist.py /tmp/
-    - id: today_date
-      run: echo "##[set-output name=data;]$(date)"
-    - name: today badge
-      uses: RubbaBoy/BYOB@v1.1.0
-      with:
-        NAME: today
-        LABEL: 'Last updated'
-        STATUS: ${{ steps.today_date.outputs.data }}
-        COLOR: 027CB9
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Install pybadges
+      run: |
+        sudo python3 -m pip install pybadges
+        sudo cp badges.py /tmp/
     - name: Generate, commit and push
       run: |
         git checkout --orphan data
         git rm -rf .
         sudo python3 /tmp/blocklist.py
+        sudo python3 /tmp/badges.py
         git add blocklist.txt
         git add hosts.txt
+        git add badge_date.svg
+        git add badge_total.svg
         git commit -m "blocklist generated"
         git push origin data
-    - id: total_entries
-      run: echo "##[set-output name=data;]$(wc -l blocklist.txt | awk '{ print $1 }')"
-    - name: total badge
-      uses: RubbaBoy/BYOB@v1.1.0
-      with:
-        NAME: total
-        LABEL: 'Aggregated entries'
-        STATUS: ${{ steps.total_entries.outputs.data }}
-        COLOR: 027CB9
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
