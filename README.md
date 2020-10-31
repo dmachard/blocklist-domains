@@ -6,8 +6,8 @@ Unified blocklists of ads/tracking/malware domains based on the [blocklist-aggre
 * ![total](https://raw.githubusercontent.com/dmachard/blocklist-domains/data/badge_total.svg)
 
 Several types of hosts files are provided (daily updated):
-- [blocklist.txt](https://github.com/dmachard/blocklist-domains/blob/data/blocklist.txt)
-- [hosts.txt](https://github.com/dmachard/blocklist-domains/blob/data/hosts.txt)
+- [blocklist.txt](https://raw.githubusercontent.com/dmachard/blocklist-domains/data/blocklist.txt)
+- [hosts.txt](https://raw.githubusercontent.com/dmachard/blocklist-domains/data/hosts.txt)
 
 # About
 
