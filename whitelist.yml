@@ -1,0 +1,6 @@
+whitelist:
+  - amazonaws.com
+  - s3.amazonaws.com
+  - localhost.localdomain
+  - t.co
+  - bit.ly
