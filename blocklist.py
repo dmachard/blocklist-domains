@@ -2,12 +2,14 @@
 import blocklist_aggregator
 
 ext_cfg = """
-whitelist:
-  - amazonaws.com
-  - s3.amazonaws.com
-  - localhost.localdomain
-  - t.co
+verbose: true
 """
+
+with open("whitelist.yml") as f:
+    ext_cfg += "\n" + f.read()
+    
+with open("blacklist.yml") as f:
+    ext_cfg += "\n" + f.read()
 
 # create raw blocklist
 blocklist_aggregator.save_raw(filename="blocklist.txt",
