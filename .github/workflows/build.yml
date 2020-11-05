@@ -27,7 +27,8 @@ jobs:
       run: |
         sudo python3 -m pip install blocklist_aggregator
         sudo cp blocklist.py /tmp/
-
+        sudo cp blacklist.yml /tmp/
+        sudo cp whitelist.yml /tmp/
     - name: Install pybadges
       run: |
         sudo python3 -m pip install pybadges
