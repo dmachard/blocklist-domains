@@ -2,9 +2,9 @@ name: Build
 on:
   schedule:
     # Every 5 minutes
-    #- cron: "*/5 * * * *"
+    - cron: "*/5 * * * *"
     # At the end of every day
-    - cron: "0 0 * * *"
+    #- cron: "0 0 * * *"
 
 jobs:
   build:
@@ -14,34 +14,42 @@ jobs:
       with:
         # checkout all branches
         fetch-depth: 0
-    - name: Remove remote data branch
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git push origin :data
     - name: Setup Python
       uses: actions/setup-python@v1
       with:
         python-version: "3.7"
-    - name: Install blocklist aggregator
+    - name: Install dependencies
       run: |
-        sudo python3 -m pip install blocklist_aggregator
-        sudo cp blocklist.py /tmp/
-        sudo cp blacklist.yml /tmp/
-        sudo cp whitelist.yml /tmp/
-    - name: Install pybadges
+        sudo python3 -m pip install blocklist_aggregator pybadges
+    - name: Generate blocklists and badges
       run: |
-        sudo python3 -m pip install pybadges
-        sudo cp badges.py /tmp/
-    - name: Generate, commit and push
+        sudo python3 blocklist.py
+        sudo python3 badges.py
+        sudo cp blocklist.txt /tmp
+        sudo cp -rf *.txt /tmp
+        sudo cp -rf *.svg /tmp
+    - name: Remove remote data branch
+      if: ${{ success() }}
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git push origin :data
+    - name: Checkout
+      if: ${{ success() }}
       run: |
         git checkout --orphan data
         git rm -rf .
-        sudo python3 /tmp/blocklist.py
-        sudo python3 /tmp/badges.py
+        cp -rf /tmp/*.txt .
+        cp -rf /tmp/*.svg .
+    - name: Add files
+      if: ${{ success() }}
+      run: |
         git add blocklist.txt
         git add hosts.txt
         git add badge_date.svg
         git add badge_total.svg
+    - name: Commit Push
+      if: ${{ success() }}
+      run: |
         git commit -m "blocklist generated"
         git push origin data
