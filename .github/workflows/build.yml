@@ -25,7 +25,6 @@ jobs:
       run: |
         sudo python3 blocklist.py
         sudo python3 badges.py
-        sudo cp blocklist.txt /tmp
         sudo cp -rf *.txt /tmp
         sudo cp -rf *.svg /tmp
     - name: Remove remote data branch
@@ -44,10 +43,7 @@ jobs:
     - name: Add files
       if: ${{ success() }}
       run: |
-        git add blocklist.txt
-        git add hosts.txt
-        git add badge_date.svg
-        git add badge_total.svg
+        git add .
     - name: Commit Push
       if: ${{ success() }}
       run: |

@@ -5,10 +5,10 @@ ext_cfg = """
 verbose: true
 """
 
-with open("/tmp/whitelist.yml") as f:
+with open("whitelist.yml") as f:
     ext_cfg += "\n" + f.read()
     
-with open("/tmp/blacklist.yml") as f:
+with open("blacklist.yml") as f:
     ext_cfg += "\n" + f.read()
 
 # create raw blocklist
