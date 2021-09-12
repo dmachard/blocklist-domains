@@ -4,3 +4,4 @@ whitelist:
   - localhost.localdomain
   - t.co
   - bit.ly
+  - cdn.jsdelivr.net
