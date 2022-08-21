@@ -18,3 +18,7 @@ blocklist_aggregator.save_raw(filename="blocklist.txt",
 # create blocklist with hosts format
 blocklist_aggregator.save_hosts(filename="hosts.txt",
                                 ext_cfg=ext_cfg) 
+
+# create blocklist to CDB format
+blocklist_aggregator.save_cdb(filename="blocklist.cdb",
+                              ext_cfg=ext_cfg)
