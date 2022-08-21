@@ -8,6 +8,7 @@ Unified blocklists of ads/tracking/malware domains based on the [blocklist-aggre
 Several types of hosts files are provided (daily updated):
 - [blocklist.txt](https://raw.githubusercontent.com/dmachard/blocklist-domains/data/blocklist.txt)
 - [hosts.txt](https://raw.githubusercontent.com/dmachard/blocklist-domains/data/hosts.txt)
+- [blocklist.cdb](https://raw.githubusercontent.com/dmachard/blocklist-domains/data/blocklist.cdb)
 
 ## Blacklist
 
@@ -17,7 +18,6 @@ Missing domains can be added to the [blacklist.yml](https://github.com/dmachard/
 
 Mistakes can be fixed by putting some domains on the [whitelist.yml](https://github.com/dmachard/blocklist-domains/blob/main/whitelist.yml) file.
 
-    
 # About
 
 | | |
