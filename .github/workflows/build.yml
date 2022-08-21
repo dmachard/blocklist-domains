@@ -27,6 +27,7 @@ jobs:
         sudo python3 badges.py
         sudo cp -rf *.txt /tmp
         sudo cp -rf *.svg /tmp
+        sudo cp -rf *.cdb /tmp
     - name: Remove remote data branch
       if: ${{ success() }}
       run: |
@@ -40,6 +41,7 @@ jobs:
         git rm -rf .
         cp -rf /tmp/*.txt .
         cp -rf /tmp/*.svg .
+        cp -rf /tmp/*.cdb .
     - name: Add files
       if: ${{ success() }}
       run: |
