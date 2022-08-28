@@ -5,3 +5,6 @@ whitelist:
   - t.co
   - bit.ly
   - cdn.jsdelivr.net
+  - spclient.wg.spotify.com
+  - incoming.telemetry.mozilla.org
+  - t.notif-colissimo-laposte.info
