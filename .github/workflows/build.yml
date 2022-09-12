@@ -8,19 +8,22 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2
       with:
         # checkout all branches
         fetch-depth: 0
+        
     - name: Setup Python
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
-        python-version: "3.7"
+        python-version: "3.10"
+        
     - name: Install dependencies
       run: |
         sudo python3 -m pip install blocklist_aggregator pybadges
+        
     - name: Generate blocklists and badges
       run: |
         sudo python3 blocklist.py
@@ -28,12 +31,14 @@ jobs:
         sudo cp -rf *.txt /tmp
         sudo cp -rf *.svg /tmp
         sudo cp -rf *.cdb /tmp
+        
     - name: Remove remote data branch
       if: ${{ success() }}
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
         git push origin :data
+        
     - name: Checkout
       if: ${{ success() }}
       run: |
@@ -42,10 +47,12 @@ jobs:
         cp -rf /tmp/*.txt .
         cp -rf /tmp/*.svg .
         cp -rf /tmp/*.cdb .
+        
     - name: Add files
       if: ${{ success() }}
       run: |
         git add .
+        
     - name: Commit Push
       if: ${{ success() }}
       run: |
