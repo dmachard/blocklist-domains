@@ -17,10 +17,3 @@ Missing domains can be added to the [blacklist.yml](https://github.com/dmachard/
 ## Whitelist
 
 Mistakes can be fixed by putting some domains on the [whitelist.yml](https://github.com/dmachard/blocklist-domains/blob/main/whitelist.yml) file.
-
-# About
-
-| | |
-| ------------- | ------------- |
-| Author | Denis Machard <d.machard@gmail.com> |
-| | |
