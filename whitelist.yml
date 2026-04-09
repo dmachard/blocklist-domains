@@ -8,3 +8,6 @@ whitelist:
   - spclient.wg.spotify.com
   - incoming.telemetry.mozilla.org
   - t.notif-colissimo-laposte.info
+  - api.themoviedb.org
+  - themoviedb.org
+  - rapidgator.net
