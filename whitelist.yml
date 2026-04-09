@@ -13,3 +13,5 @@ whitelist:
   - rapidgator.net
   - mirror.jellyfin.org
   - www.omdbapi.com
+  - image.tmdb.org
+  - api.tmdb.org
