@@ -30,11 +30,11 @@ jobs:
         
     - name: Generate blocklists and badges
       run: |
-        sudo python3 blocklist.py
-        sudo python3 badges.py
-        sudo cp -rf *.txt /tmp
-        sudo cp -rf *.svg /tmp
-        sudo cp -rf *.cdb /tmp
+        python3 blocklist.py
+        python3 badges.py
+        cp -rf *.txt /tmp
+        cp -rf *.svg /tmp
+        cp -rf *.cdb /tmp
         
     - name: Remove remote data branch
       if: ${{ success() }}
