@@ -13,19 +13,20 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         # checkout all branches
         fetch-depth: 0
         
     - name: Setup Python
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@v7
       with:
         python-version: "3.14"
         
     - name: Install dependencies
       run: |
-        sudo python3 -m pip install blocklist_aggregator pybadges
+        python -m pip install --upgrade pip
+        pip install blocklist_aggregator pybadges
         
     - name: Generate blocklists and badges
       run: |
@@ -40,7 +41,7 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git push origin :data
+        git push origin :data || true
         
     - name: Checkout
       if: ${{ success() }}
