@@ -18,7 +18,7 @@ Missing domains can be added to the [blacklist.yml](https://github.com/dmachard/
 
 Mistakes can be fixed by putting some domains on the [whitelist.yml](https://github.com/dmachard/blocklist-domains/blob/main/whitelist.yml) file.
 
-## Embedded default sources
+## Based sources
 
 - https://easylist.to/easylist/easylist.txt
 - https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/hosts/multi.txt
