@@ -22,7 +22,7 @@ Mistakes can be fixed by putting some domains on the [whitelist.yml](https://git
 
 - https://easylist.to/easylist/easylist.txt
 - https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/hosts/multi.txt
-- https://urlhaus.abuse.ch/downloads/hostfile/
+- https://netapi.com/api2/?method=compromised&dataset_type=url&format=hosts
 - https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts;showintro=0
 - https://someonewhocares.org/hosts/hosts
 - https://raw.githubusercontent.com/davidonzo/Threat-Intel/master/lists/latestdomains.piHole.txt
